@@ -1,0 +1,41 @@
+{
+  "name": "claude-bridge-mcp",
+  "version": "0.1.0",
+  "description": "Secure MCP server that lets ChatGPT (or any MCP client) delegate coding tasks to a local Claude Code instance",
+  "type": "module",
+  "main": "dist/index.js",
+  "bin": {
+    "claude-bridge-mcp": "dist/index.js"
+  },
+  "engines": {
+    "node": ">=20"
+  },
+  "scripts": {
+    "build": "tsc -p tsconfig.json",
+    "start": "node dist/index.js",
+    "dev": "tsc -p tsconfig.json --watch",
+    "test": "vitest run",
+    "test:watch": "vitest",
+    "typecheck": "tsc -p tsconfig.json --noEmit"
+  },
+  "keywords": [
+    "mcp",
+    "model-context-protocol",
+    "claude",
+    "claude-code",
+    "chatgpt",
+    "ai",
+    "orchestration"
+  ],
+  "license": "MIT",
+  "dependencies": {
+    "@modelcontextprotocol/sdk": "^1.12.0",
+    "yaml": "^2.6.0",
+    "zod": "^3.24.0"
+  },
+  "devDependencies": {
+    "@types/node": "^22.10.0",
+    "typescript": "^5.7.0",
+    "vitest": "^2.1.0"
+  }
+}

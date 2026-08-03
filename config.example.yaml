@@ -1,0 +1,87 @@
+# claude-bridge-mcp configuration
+# Copy this file to config.yaml and edit it. config.yaml is gitignored.
+
+# Absolute paths of projects the bridge is allowed to touch.
+# Every delegate_to_claude / run_tests / status call must target a path
+# inside one of these directories. Everything else is rejected.
+approved_projects:
+  - "C:/Users/you/projects/my-app"
+  - "C:/Users/you/projects/another-repo"
+
+# suggest   -> Claude Code runs in plan mode (no edits are applied)
+# auto-edit -> Claude Code may read/edit files and run allowed tools
+# full-auto -> Claude Code runs with permission checks bypassed
+#              (only honored when allow_full_auto is also true)
+approval_mode: auto-edit
+allow_full_auto: false
+
+# Default per-task timeout in milliseconds (callers may lower it, never raise
+# it above max_timeout_ms).
+default_timeout_ms: 600000
+max_timeout_ms: 1800000
+
+# Regex patterns (case-insensitive) that force a task into the approval queue
+# when they appear in the task text. These are matched against the incoming
+# task description, and the same policy is passed to Claude Code as
+# disallowed tools where possible.
+blocked_commands:
+  - '\brm\s+-rf?\b'
+  - '\bsudo\b'
+  - '\bgit\s+push\b'
+  - '\bdeploy(ment)?\b'
+  - '\bnpm\s+publish\b'
+  - '\bterraform\s+(apply|destroy)\b'
+  - '\bkubectl\s+(apply|delete)\b'
+  - '\b(set|export)\s+\w+='
+  - '\.env\b'
+  - '\bssh-?key'
+
+# Tool patterns passed to Claude Code via --allowedTools in auto-edit mode.
+allowed_commands:
+  - "Read"
+  - "Edit"
+  - "Write"
+  - "Grep"
+  - "Glob"
+  - "Bash(npm run:*)"
+  - "Bash(npm test:*)"
+  - "Bash(git status:*)"
+  - "Bash(git diff:*)"
+  - "Bash(git log:*)"
+
+claude:
+  binary: "claude"        # or an absolute path to the Claude Code executable
+  model: null              # null = Claude Code default; or e.g. "claude-opus-5"
+  max_turns: 40
+
+# Multi-provider routing (stretch goal). Executors are tried in priority
+# order; the first available one wins. Only "claude" and "mock" can execute
+# code tasks; the API executors handle analysis tasks (reviews) and act as
+# fallbacks when Claude is unavailable or rate-limited.
+executors:
+  priority: [claude, openai, gemini, ollama]
+  openai:
+    enabled: false
+    model: "gpt-4o"
+    api_key_env: "OPENAI_API_KEY"
+    base_url: "https://api.openai.com/v1"
+  gemini:
+    enabled: false
+    model: "gemini-1.5-pro"
+    api_key_env: "GEMINI_API_KEY"
+  ollama:
+    enabled: false
+    model: "qwen2.5-coder"
+    base_url: "http://localhost:11434"
+
+logging:
+  dir: "./logs"
+  level: "info"            # debug | info | warn | error
+  console: true            # human-readable console logging (stderr)
+  json: true               # JSON-lines file logging
+  verbose: false           # verbose = include full command lines and outputs
+
+server:
+  transport: "stdio"       # stdio | http | both
+  http_port: 8765
+  dashboard: true          # serve the web dashboard on the HTTP port
