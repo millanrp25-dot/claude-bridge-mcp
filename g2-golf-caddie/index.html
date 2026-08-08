@@ -1,0 +1,31 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+    <title>Golf Caddie · Even G2</title>
+    <style>
+      :root { color-scheme: dark; }
+      body {
+        margin: 0;
+        min-height: 100vh;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        gap: 16px;
+        background: #0b0f0e;
+        color: #cfe9e4;
+        font-family: system-ui, -apple-system, "Segoe UI", sans-serif;
+      }
+      h1 { font-size: 15px; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; color: #6f8c87; margin: 0; }
+      #simulator { display: flex; flex-direction: column; align-items: center; gap: 10px; }
+    </style>
+  </head>
+  <body>
+    <h1>Golf Caddie — G2 preview</h1>
+    <!-- Populated by the simulator host outside the Even App WebView; unused on device. -->
+    <div id="simulator"></div>
+    <script type="module" src="/src/main.ts"></script>
+  </body>
+</html>

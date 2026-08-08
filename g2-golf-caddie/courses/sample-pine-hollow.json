@@ -1,0 +1,549 @@
+{
+  "id": "sample-pine-hollow",
+  "name": "Pine Hollow (sample)",
+  "location": "Fictional — generated fixture",
+  "version": 1,
+  "holes": [
+    {
+      "number": 1,
+      "par": 4,
+      "handicap": 5,
+      "tees": [
+        {
+          "name": "Blue",
+          "position": {
+            "lat": 44.2820396,
+            "lng": -121.3182,
+            "elevation": 0
+          },
+          "lengthMeters": 364
+        },
+        {
+          "name": "White",
+          "position": {
+            "lat": 44.2821496,
+            "lng": -121.3180617,
+            "elevation": 0
+          },
+          "lengthMeters": 347
+        },
+        {
+          "name": "Forward",
+          "position": {
+            "lat": 44.2822963,
+            "lng": -121.3178772,
+            "elevation": 0
+          },
+          "lengthMeters": 326
+        }
+      ],
+      "green": {
+        "front": {
+          "lat": 44.2843801,
+          "lng": -121.3152561,
+          "elevation": 4
+        },
+        "center": {
+          "lat": 44.2844718,
+          "lng": -121.3151408,
+          "elevation": 4
+        },
+        "back": {
+          "lat": 44.2845635,
+          "lng": -121.3150255,
+          "elevation": 4
+        }
+      },
+      "hazards": [
+        {
+          "name": "Fairway bunker",
+          "kind": "bunker",
+          "carry": {
+            "lat": 44.2834816,
+            "lng": -121.3162009
+          }
+        }
+      ]
+    },
+    {
+      "number": 2,
+      "par": 5,
+      "handicap": 11,
+      "tees": [
+        {
+          "name": "Blue",
+          "position": {
+            "lat": 44.282052,
+            "lng": -121.3173732,
+            "elevation": 0
+          },
+          "lengthMeters": 476
+        },
+        {
+          "name": "White",
+          "position": {
+            "lat": 44.2819825,
+            "lng": -121.3171906,
+            "elevation": 0
+          },
+          "lengthMeters": 460
+        },
+        {
+          "name": "Forward",
+          "position": {
+            "lat": 44.2818899,
+            "lng": -121.3169472,
+            "elevation": 0
+          },
+          "lengthMeters": 438
+        }
+      ],
+      "green": {
+        "front": {
+          "lat": 44.2800984,
+          "lng": -121.3122415,
+          "elevation": -6
+        },
+        "center": {
+          "lat": 44.2800405,
+          "lng": -121.3120894,
+          "elevation": -6
+        },
+        "back": {
+          "lat": 44.2799826,
+          "lng": -121.3119372,
+          "elevation": -6
+        }
+      },
+      "hazards": [
+        {
+          "name": "Creek",
+          "kind": "water",
+          "carry": {
+            "lat": 44.2809457,
+            "lng": -121.314467
+          },
+          "far": {
+            "lat": 44.2808917,
+            "lng": -121.314325
+          }
+        }
+      ]
+    },
+    {
+      "number": 3,
+      "par": 3,
+      "handicap": 17,
+      "tees": [
+        {
+          "name": "Blue",
+          "position": {
+            "lat": 44.2814247,
+            "lng": -121.3166963,
+            "elevation": 0
+          },
+          "lengthMeters": 154
+        },
+        {
+          "name": "White",
+          "position": {
+            "lat": 44.2812905,
+            "lng": -121.3167837,
+            "elevation": 0
+          },
+          "lengthMeters": 137
+        },
+        {
+          "name": "Forward",
+          "position": {
+            "lat": 44.2811117,
+            "lng": -121.3169002,
+            "elevation": 0
+          },
+          "lengthMeters": 115
+        }
+      ],
+      "green": {
+        "front": {
+          "lat": 44.2802844,
+          "lng": -121.317439,
+          "elevation": 9
+        },
+        "center": {
+          "lat": 44.2801726,
+          "lng": -121.3175118,
+          "elevation": 9
+        },
+        "back": {
+          "lat": 44.2800608,
+          "lng": -121.3175846,
+          "elevation": 9
+        }
+      },
+      "hazards": [
+        {
+          "name": "Front bunker",
+          "kind": "bunker",
+          "carry": {
+            "lat": 44.2803201,
+            "lng": -121.3173143
+          }
+        }
+      ]
+    },
+    {
+      "number": 4,
+      "par": 4,
+      "handicap": 7,
+      "tees": [
+        {
+          "name": "Blue",
+          "position": {
+            "lat": 44.2804516,
+            "lng": -121.3170142,
+            "elevation": 0
+          },
+          "lengthMeters": 340
+        },
+        {
+          "name": "White",
+          "position": {
+            "lat": 44.2805022,
+            "lng": -121.3172085,
+            "elevation": 0
+          },
+          "lengthMeters": 324
+        },
+        {
+          "name": "Forward",
+          "position": {
+            "lat": 44.2805697,
+            "lng": -121.3174675,
+            "elevation": 0
+          },
+          "lengthMeters": 302
+        }
+      ],
+      "green": {
+        "front": {
+          "lat": 44.2814556,
+          "lng": -121.3208676,
+          "elevation": 0
+        },
+        "center": {
+          "lat": 44.2814978,
+          "lng": -121.3210295,
+          "elevation": 0
+        },
+        "back": {
+          "lat": 44.28154,
+          "lng": -121.3211914,
+          "elevation": 0
+        }
+      }
+    },
+    {
+      "number": 5,
+      "par": 4,
+      "handicap": 1,
+      "tees": [
+        {
+          "name": "Blue",
+          "position": {
+            "lat": 44.279897,
+            "lng": -121.3185147,
+            "elevation": 0
+          },
+          "lengthMeters": 403
+        },
+        {
+          "name": "White",
+          "position": {
+            "lat": 44.28004,
+            "lng": -121.3184612,
+            "elevation": 0
+          },
+          "lengthMeters": 387
+        },
+        {
+          "name": "Forward",
+          "position": {
+            "lat": 44.2802306,
+            "lng": -121.3183898,
+            "elevation": 0
+          },
+          "lengthMeters": 365
+        }
+      ],
+      "green": {
+        "front": {
+          "lat": 44.2832808,
+          "lng": -121.3172482,
+          "elevation": 7
+        },
+        "center": {
+          "lat": 44.2833999,
+          "lng": -121.3172036,
+          "elevation": 7
+        },
+        "back": {
+          "lat": 44.2835191,
+          "lng": -121.317159,
+          "elevation": 7
+        }
+      },
+      "hazards": [
+        {
+          "name": "Pond",
+          "kind": "water",
+          "carry": {
+            "lat": 44.2825952,
+            "lng": -121.3173146
+          },
+          "far": {
+            "lat": 44.2827699,
+            "lng": -121.3172492
+          }
+        }
+      ]
+    },
+    {
+      "number": 6,
+      "par": 3,
+      "handicap": 13,
+      "tees": [
+        {
+          "name": "Blue",
+          "position": {
+            "lat": 44.2804167,
+            "lng": -121.3203609,
+            "elevation": 0
+          },
+          "lengthMeters": 187
+        },
+        {
+          "name": "White",
+          "position": {
+            "lat": 44.2804012,
+            "lng": -121.3201553,
+            "elevation": 0
+          },
+          "lengthMeters": 171
+        },
+        {
+          "name": "Forward",
+          "position": {
+            "lat": 44.2803806,
+            "lng": -121.3198811,
+            "elevation": 0
+          },
+          "lengthMeters": 149
+        }
+      ],
+      "green": {
+        "front": {
+          "lat": 44.2802534,
+          "lng": -121.3181905,
+          "elevation": -4
+        },
+        "center": {
+          "lat": 44.2802405,
+          "lng": -121.3180191,
+          "elevation": -4
+        },
+        "back": {
+          "lat": 44.2802276,
+          "lng": -121.3178478,
+          "elevation": -4
+        }
+      }
+    },
+    {
+      "number": 7,
+      "par": 5,
+      "handicap": 9,
+      "tees": [
+        {
+          "name": "Blue",
+          "position": {
+            "lat": 44.2819487,
+            "lng": -121.321149,
+            "elevation": 0
+          },
+          "lengthMeters": 446
+        },
+        {
+          "name": "White",
+          "position": {
+            "lat": 44.2818039,
+            "lng": -121.321106,
+            "elevation": 0
+          },
+          "lengthMeters": 430
+        },
+        {
+          "name": "Forward",
+          "position": {
+            "lat": 44.2816109,
+            "lng": -121.3210487,
+            "elevation": 0
+          },
+          "lengthMeters": 408
+        }
+      ],
+      "green": {
+        "front": {
+          "lat": 44.278144,
+          "lng": -121.3200195,
+          "elevation": 2
+        },
+        "center": {
+          "lat": 44.2780234,
+          "lng": -121.3199836,
+          "elevation": 2
+        },
+        "back": {
+          "lat": 44.2779027,
+          "lng": -121.3199478,
+          "elevation": 2
+        }
+      },
+      "hazards": [
+        {
+          "name": "Cross bunkers",
+          "kind": "bunker",
+          "carry": {
+            "lat": 44.2791942,
+            "lng": -121.3203781
+          }
+        }
+      ]
+    },
+    {
+      "number": 8,
+      "par": 4,
+      "handicap": 15,
+      "tees": [
+        {
+          "name": "Blue",
+          "position": {
+            "lat": 44.2835813,
+            "lng": -121.3199469,
+            "elevation": 0
+          },
+          "lengthMeters": 325
+        },
+        {
+          "name": "White",
+          "position": {
+            "lat": 44.2835259,
+            "lng": -121.3201386,
+            "elevation": 0
+          },
+          "lengthMeters": 308
+        },
+        {
+          "name": "Forward",
+          "position": {
+            "lat": 44.2834519,
+            "lng": -121.3203942,
+            "elevation": 0
+          },
+          "lengthMeters": 286
+        }
+      ],
+      "green": {
+        "front": {
+          "lat": 44.2825339,
+          "lng": -121.323568,
+          "elevation": -3
+        },
+        "center": {
+          "lat": 44.2824876,
+          "lng": -121.3237277,
+          "elevation": -3
+        },
+        "back": {
+          "lat": 44.2824414,
+          "lng": -121.3238875,
+          "elevation": -3
+        }
+      },
+      "hazards": [
+        {
+          "name": "OB left",
+          "kind": "ood",
+          "carry": {
+            "lat": 44.2827753,
+            "lng": -121.321691
+          }
+        }
+      ]
+    },
+    {
+      "number": 9,
+      "par": 4,
+      "handicap": 3,
+      "tees": [
+        {
+          "name": "Blue",
+          "position": {
+            "lat": 44.2840934,
+            "lng": -121.3171612,
+            "elevation": 0
+          },
+          "lengthMeters": 379
+        },
+        {
+          "name": "White",
+          "position": {
+            "lat": 44.2842216,
+            "lng": -121.3172646,
+            "elevation": 0
+          },
+          "lengthMeters": 362
+        },
+        {
+          "name": "Forward",
+          "position": {
+            "lat": 44.2843925,
+            "lng": -121.3174024,
+            "elevation": 0
+          },
+          "lengthMeters": 340
+        }
+      ],
+      "green": {
+        "front": {
+          "lat": 44.2869349,
+          "lng": -121.319453,
+          "elevation": 5
+        },
+        "center": {
+          "lat": 44.2870417,
+          "lng": -121.3195391,
+          "elevation": 5
+        },
+        "back": {
+          "lat": 44.2871486,
+          "lng": -121.3196253,
+          "elevation": 5
+        }
+      },
+      "hazards": [
+        {
+          "name": "Lake",
+          "kind": "water",
+          "carry": {
+            "lat": 44.2862491,
+            "lng": -121.3187937
+          },
+          "far": {
+            "lat": 44.2864627,
+            "lng": -121.318966
+          }
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,9 @@
+{
+  "id": "com.example.g2golfcaddie",
+  "name": "Golf Caddie",
+  "version": "0.1.0",
+  "description": "GPS yardages, shot tracking and a scorecard on the G2 display.",
+  "entry": "index.html",
+  "permissions": ["location", "storage"],
+  "minEvenAppVersion": "2.2.6"
+}
