@@ -50,7 +50,8 @@ refuses to start.
 
 ## Three ways to build one
 
-**Walk it.** Menu → *Map this course*. The top row always names the next
+**Walk it.** *Map a new course now* on the course picker (no round needed to
+start), or *Map this course* from the in-round menu. The top row always names the next
 landmark — tee, then front, middle and back of the green — so the common path is
 tap, walk, tap. The other rows drop a water hazard or bunker where you are
 standing, cycle the hole's par, skip to the next hole, or save.

@@ -1,9 +1,16 @@
 {
-  "id": "com.example.g2golfcaddie",
+  "package_id": "com.example.g2golfcaddie",
+  "edition": "202601",
   "name": "Golf Caddie",
   "version": "0.1.0",
-  "description": "GPS yardages, shot tracking and a scorecard on the G2 display.",
-  "entry": "index.html",
-  "permissions": ["location", "storage"],
-  "minEvenAppVersion": "2.2.6"
+  "min_app_version": "2.2.6",
+  "min_sdk_version": "0.0.13",
+  "entrypoint": "index.html",
+  "permissions": [
+    {
+      "name": "location",
+      "desc": "Live GPS distance to the green and hazard carries, updated as you walk."
+    }
+  ],
+  "supported_languages": ["en"]
 }

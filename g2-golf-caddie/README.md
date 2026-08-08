@@ -50,25 +50,54 @@ have nothing to act on are hidden rather than shown greyed out.
 
 ```bash
 npm install
-npm run dev      # http://localhost:5173 — simulator, no glasses needed
-npm test         # 112 tests, no device
-npm run build    # dist/, ready to upload to Even Hub
+npm run dev        # http://localhost:5173 — real browser host, no glasses needed
+npm test           # 118 tests, no device
+npm run build      # dist/, ready to pack for Even Hub
 ```
 
-Outside the Even App WebView the app boots against a **simulator**: a DOM mock of
-the 576×288 display plus a walkable GPS. Keyboard controls are printed under the
-display — `↑`/`↓` scroll, `Enter` tap, `M` double-tap, `W`/`A`/`S`/`D` walk ten
-metres, `[`/`]` jump between tees and greens of the bundled course.
+There are three hosts, picked automatically by where the page runs:
 
-On device, `isEvenAppWebView()` detects the Flutter bridge and the real
-`EvenBridgeHost` is used instead. Nothing else changes.
+- **A phone or desktop browser** (default) — `BrowserHost`: real `navigator.geolocation`
+  GPS and touch controls. This is what makes the app usable before a G2 is ever
+  paired — open `npm run dev`'s URL on a phone on the same network and it behaves
+  like the real thing, GPS and all.
+- **`http://localhost:5173/?dev=1`** — the keyboard simulator: a DOM mock of the
+  576×288 display plus a walkable GPS. `↑`/`↓` scroll, `Enter` tap, `M` double-tap,
+  `W`/`A`/`S`/`D` walk ten metres, `[`/`]` jump between tees and greens.
+- **Inside Even App's WebView** — `isEvenAppWebView()` detects the Flutter bridge
+  and swaps in the real `EvenBridgeHost`. Nothing else about the app changes.
 
 ## Deploying to the glasses
 
-1. `npm run build`
-2. Serve or upload `dist/` per the [Even Hub developer docs](https://hub.evenrealities.com/docs).
-3. `app.json` carries the manifest (id, name, entry, permissions). It requests
-   `location` and `storage`; without location the app can only show the menu.
+Uses the official [`@evenrealities/evenhub-cli`](https://www.npmjs.com/package/@evenrealities/evenhub-cli)
+(`npx @evenrealities/evenhub-cli <command>`, or install it globally as `evenhub`/`eh`).
+
+**Live dev mode — fastest way to see it on real glasses, no packaging:**
+
+```bash
+npm run dev                 # starts the Vite dev server
+evenhub qr                  # in another terminal, same network as your phone
+```
+
+`evenhub qr` prints a QR code for your dev server's URL. Scan it from inside the
+Even App and it loads the running app straight onto the paired G2 over your local
+network — edits to the dev server show up on reload, no upload step.
+
+**A real package, for the Even Hub app store:**
+
+```bash
+evenhub login                       # your Even Realities account (same as the app)
+npm run build
+evenhub pack app.json dist -c       # -c checks the package_id is available first
+evenhub pack app.json dist -o golf-caddie.ehpk
+```
+
+`app.json` is the manifest `evenhub pack` validates against — package id, name,
+version, minimum Even App/SDK versions, and permissions (this app declares only
+`location`; it makes no network calls and needs none). Change `package_id` from
+the `com.example.*` placeholder before submitting — it needs to be one you
+control. Upload the resulting `.ehpk` through the Even Hub developer portal to
+submit it.
 
 Requires Even App **2.2.6** or later — that is the SDK's `minAppVersion`.
 
@@ -79,9 +108,10 @@ generated with real spherical geometry so it behaves like a surveyed course in
 the simulator. Regenerate it with `node tools/make-sample-course.mjs`.
 
 To play a real course, either author a course file by hand
-(see [`courses/README.md`](courses/README.md)) or use **Menu → Map this course**
-and walk it once. Recorded courses are stored on the device and merged with the
-bundled ones at startup.
+(see [`courses/README.md`](courses/README.md)) or walk it once with **Map a new
+course now** on the course picker (no round needed to start) or **Map this
+course** from the in-round menu (adds to whatever's already loaded). Recorded
+courses are stored on the device and merged with the bundled ones at startup.
 
 ## Architecture
 
