@@ -293,6 +293,30 @@ describe('course mapping', () => {
     expect(h.text()).toMatch(/CENTER/);
     expect(h.app.state.mapping?.holes[0]?.tee).toBeDefined();
   });
+
+  it('reaches mapping straight from the course picker, with no round required', async () => {
+    const h = await harness();
+    await h.choose('Map a new course now');
+
+    expect(h.app.state.round).toBeUndefined();
+    expect(h.text()).toContain('Mapping H1');
+  });
+
+  it('starts playing on the mapped course immediately once saved from a cold start', async () => {
+    const h = await harness();
+    await h.choose('Map a new course now');
+
+    for (const meters of [0, 330, 345, 360]) {
+      await h.walk({ ...destinationPoint(TEE_1, 90, meters), accuracy: 4 });
+      await h.choose('▶ Record');
+    }
+    await h.choose('Save & play');
+
+    expect(h.app.state.round).toBeDefined();
+    expect(h.app.state.round?.currentHole).toBe(1);
+    expect(h.app.state.round?.courseId).toBe(h.app.state.course?.id);
+    expect(h.text()).toMatch(/CENTER/);
+  });
 });
 
 describe('persistence', () => {
@@ -340,7 +364,7 @@ describe('persistence', () => {
       await h.walk({ ...destinationPoint(TEE_1, 90, meters), accuracy: 4 });
       await h.choose('▶ Record');
     }
-    await h.choose('Save & exit mapping');
+    await h.choose('Save & play');
 
     const recorded = h.app.state.courses.find((entry) => entry.id !== course.id)!;
     expect(recorded.holes).toHaveLength(1);

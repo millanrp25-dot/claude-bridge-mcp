@@ -2,30 +2,32 @@
 <html lang="en">
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
-    <title>Golf Caddie · Even G2</title>
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, viewport-fit=cover"
+    />
+    <meta name="mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+    <meta name="theme-color" content="#0a1512" />
+    <title>Golf Caddie</title>
     <style>
-      :root { color-scheme: dark; }
+      html, body { height: 100%; }
       body {
         margin: 0;
-        min-height: 100vh;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        justify-content: center;
-        gap: 16px;
-        background: #0b0f0e;
-        color: #cfe9e4;
-        font-family: system-ui, -apple-system, "Segoe UI", sans-serif;
+        background: #0a1512;
+        color: #eef7f0;
+        font-family: -apple-system, "SF Pro Text", "Segoe UI", system-ui, sans-serif;
+        overscroll-behavior: none;
       }
-      h1 { font-size: 15px; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; color: #6f8c87; margin: 0; }
-      #simulator { display: flex; flex-direction: column; align-items: center; gap: 10px; }
+      #app { height: 100%; min-height: 100dvh; }
     </style>
   </head>
   <body>
-    <h1>Golf Caddie — G2 preview</h1>
-    <!-- Populated by the simulator host outside the Even App WebView; unused on device. -->
-    <div id="simulator"></div>
+    <!-- Populated by whichever host boots: the real Even bridge on device,
+         the touch/GPS host in a phone browser, or the keyboard simulator
+         under ?dev=1. -->
+    <div id="app"></div>
     <script type="module" src="/src/main.ts"></script>
   </body>
 </html>

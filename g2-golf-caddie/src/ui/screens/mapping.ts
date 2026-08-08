@@ -8,6 +8,7 @@
  * still highlight-nothing, tap, walk, tap.
  */
 
+import { availableTeeNames } from '../../core/course.js';
 import {
   currentMappedHole,
   goToMappingHole,
@@ -21,6 +22,7 @@ import {
   toCourse,
   type MappingSession,
 } from '../../core/mapping.js';
+import { startRound } from '../../core/round.js';
 import { CONTENT_CHARS, listScreen } from '../layout.js';
 import type { GlassInput } from '../../sdk/host.js';
 import { justify } from '../text.js';
@@ -108,15 +110,36 @@ function rows(session: MappingSession): Row[] {
       },
     },
     {
-      label: 'Save & exit mapping',
+      label: 'Save & play',
       run(app, current) {
         try {
           const course = toCourse(current);
+          const courses = [
+            course,
+            ...app.state.courses.filter((entry) => entry.id !== course.id),
+          ];
+
+          // No round yet — the common case, since mapping is the fast path into
+          // a course with no pre-loaded data. Start playing on it immediately
+          // rather than dropping the player back at a picker they'd have to
+          // navigate right back out of.
+          const needsRound = !app.state.round || app.state.round.courseId !== course.id;
+          const round = needsRound
+            ? startRound({
+                course,
+                teeName: availableTeeNames(course)[0] ?? current.teeName,
+                unit: app.state.settings.unit,
+                now: app.now,
+              })
+            : app.state.round;
+
           app.patch({
-            courses: [course, ...app.state.courses.filter((entry) => entry.id !== course.id)],
+            courses,
+            course,
+            ...(round ? { round } : {}),
             mapping: undefined,
           });
-          app.toast(`Saved ${course.name} (${course.holes.length} holes)`);
+          app.toast(`Saved ${course.name} — hole 1, ${course.holes.length} mapped`);
         } catch (error) {
           app.toast(error instanceof Error ? error.message : 'Nothing mapped yet.', 4000);
         }

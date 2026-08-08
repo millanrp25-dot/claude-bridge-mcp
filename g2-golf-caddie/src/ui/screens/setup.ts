@@ -10,6 +10,7 @@ import { startRound } from '../../core/round.js';
 import type { GlassInput } from '../../sdk/host.js';
 import { listScreen } from '../layout.js';
 import { holeScreen } from './hole.js';
+import { openMapping } from './mapping.js';
 import type { AppApi, Screen } from './types.js';
 
 interface Entry {
@@ -55,6 +56,11 @@ function entries(app: AppApi): Entry[] {
   list.push(...app.state.courses.map(courseEntry));
 
   list.push({
+    label: 'Map a new course now (walk & mark)',
+    run: (api) => openMapping(api),
+  });
+
+  list.push({
     label: `Units: ${settings.unit === 'yards' ? 'yards' : 'metres'} (tap to switch)`,
     run: (api) => {
       const unit = api.state.settings.unit === 'yards' ? 'meters' : 'yards';
@@ -81,9 +87,7 @@ export function setupScreen(): Screen {
 
       return listScreen({
         header:
-          app.state.courses.length > 0
-            ? 'Choose a course'
-            : 'No courses yet — map one from the menu',
+          app.state.courses.length > 0 ? 'Choose a course' : 'No courses yet — map one below',
         items: list.map((entry) => entry.label),
         selectedIndex: selected,
         footer: '▲▼ move   tap: choose',
